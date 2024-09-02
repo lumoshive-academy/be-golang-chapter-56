@@ -1,8 +1,8 @@
 package main
 
 import (
-	"be-golang-chapter-56/user-service/models"
-	"be-golang-chapter-56/user-service/routes"
+	"be-golang-chapter-56/product-service/models"
+	"be-golang-chapter-56/product-service/routes"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/postgres"
@@ -16,11 +16,11 @@ func main() {
 		panic("Failed to connect to database!")
 	}
 
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Product{})
 
 	router := gin.Default()
 
-	routes.UserRoutes(router, db)
+	routes.ProductRoutes(router, db)
 
-	router.Run(":8082")
+	router.Run(":8081")
 }
