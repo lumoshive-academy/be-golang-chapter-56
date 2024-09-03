@@ -10,7 +10,7 @@ import (
 func ProductRoutes(router *gin.Engine, db *gorm.DB) {
 	productController := controller.NewProductController(db)
 
-	productRoutes := router.Group("/product")
+	productRoutes := router.Group("/")
 	{
 		productRoutes.POST("/", productController.CreateProduct)
 		productRoutes.GET("/:id", productController.GetProductByID)
